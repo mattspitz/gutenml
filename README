@@ -19,5 +19,4 @@ python 01generate_wget_urls.py data/catalog/catalog.tsv data/books/urls.txt
 mkdir -p data/books/raw
 # download books
 cd data/books/raw
-wget --random-wait --wait 2 --input-file urls.txt
-
+wget --wait 30 --input-file urls.txt
