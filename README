@@ -1,0 +1,23 @@
+A series of scripts to grab stuff from Project Gutenberg and format it nicely.
+
+Sample usage:
+
+# download project gutenberg's catalog
+wget http://www.gutenberg.org/feeds/catalog.rdf.bz2
+bunzip2 catalog.rdf.bz2
+
+mkdir -p data/catalog
+mv catalog.rdf data/catalog
+
+# convert the RDF catalog to TSV, generate counts by author
+python 00catalog2csv.py data/catalog/catalog.rdf data/catalog/catalog.tsv data/catalog/author_count.tsv
+
+mkdir -p data/books
+# pick some authors based on author_count, add them to 01generate_wget_urls.py
+python 01generate_wget_urls.py data/catalog/catalog.tsv data/books/urls.txt
+
+mkdir -p data/books/raw
+# download books
+cd data/books/raw
+wget --random-wait --wait 2 --input-file urls.txt
+
