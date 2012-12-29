@@ -27,6 +27,6 @@ wget --referer="http://www.google.com" \
     --header="Accept-Language: en-us,en;q=0.5" \
     --header="Accept-Encoding: gzip,deflate" \
     --header="Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7" \
-    --header="Keep-Alive: 300" -dnv \
+    --header="Keep-Alive: 300" \
     --wait 30 \
     --input-file ../urls.txt
